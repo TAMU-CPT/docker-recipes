@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER Eric Rasche <esr@tamu.edu>
 EXPOSE 80
 
-ENV GIT_REV v1.1
+ENV GIT_REV v1.3-1-g0fdf129
 
 RUN apk update && \
 	apk add ca-certificates wget && \
