@@ -6,7 +6,7 @@ RUN apk update && \
 	apk add python py-pip wget git make && \
 	pip install beautifulsoup4 requests
 
-ENV GIT_REV 419ae2524d4104f2dd5610c1b63b8dbbfc14c657
+ENV GIT_REV 4caeadeb397b6d534b2442428f6f7223477965ec
 ENV GIT_URL https://github.com/TAMU-CPT/Phage-Registry
 
 RUN wget ${GIT_URL}/archive/${GIT_REV}.tar.gz && \
