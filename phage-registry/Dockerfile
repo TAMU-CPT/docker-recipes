@@ -6,15 +6,18 @@ RUN apk update && \
 	apk add python py-pip wget git make && \
 	pip install beautifulsoup4 requests
 
-ENV GIT_REV 4caeadeb397b6d534b2442428f6f7223477965ec
+ENV GIT_REV c3f7a36be22a56b386ccb39dac69cd2feb5a6e52
 ENV GIT_URL https://github.com/TAMU-CPT/Phage-Registry
 
 RUN wget ${GIT_URL}/archive/${GIT_REV}.tar.gz && \
-    tar xvfz ${GIT_REV}.tar.gz && \
-    mv Phage-Registry-${GIT_REV}/ /app/ && \
-    go get -v github.com/blevesearch/bleve/... && \
-    go get -v github.com/gorilla/mux && \
-    cd /app && make download_data && make update_date
+	tar xvfz ${GIT_REV}.tar.gz && \
+	rm ${GIT_REV}.tar.gz && \
+	mv Phage-Registry-${GIT_REV}/ /app/ && \
+	go get -v github.com/blevesearch/bleve/... && \
+	go get -v github.com/gorilla/mux && \
+	cd /app && \
+	make download_data && \
+	make update_date
 
 WORKDIR /app
 
