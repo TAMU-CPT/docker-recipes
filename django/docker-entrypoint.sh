@@ -1,7 +1,7 @@
 #!/bin/bash
 
 postgres_ready() {
-	python /docker/postgres_ready.py
+	python /docker/postgres_ready.py ${DB_HOSTNAME}
 }
 
 until postgres_ready; do
