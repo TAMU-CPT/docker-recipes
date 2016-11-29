@@ -1,6 +1,7 @@
 #!/bin/bash
 
 postgres_ready() {
+	echo "Checking postgres at ${DB_HOSTNAME}"
 	python /docker/postgres_ready.py ${DB_HOSTNAME}
 }
 
