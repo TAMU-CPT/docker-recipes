@@ -2,7 +2,7 @@ FROM python:2.7-alpine
 
 # Update the default application repository sources list
 RUN apk update && \
-	apk add postgresql-dev gcc python3-dev musl-dev bash && \
+	apk add postgresql-dev gcc python3-dev musl-dev bash postgresql-client && \
 	pip install psycopg2
 
 WORKDIR /app
