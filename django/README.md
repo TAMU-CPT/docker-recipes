@@ -14,8 +14,9 @@ Features:
 
 Copy and paste the following into your project and tweak to your needs.
 
-```
-FROM quay.io:tamu_cpt/django
+```Dockerfile
+# https://github.com/TAMU-CPT/docker-recipes/blob/master/django/Dockerfile.inherit
+FROM quay.io/tamu_cpt/django
 
 # Add our project to the /app/ folder
 ADD . /app/

@@ -17,6 +17,5 @@ ENV DJANGO_WSGI_MODULE=base.wsgi \
 	CORS_ORIGINS="localhost:10000" \
 	DB_HOSTNAME="db"
 
-USER django
 EXPOSE 8000
 ENTRYPOINT ["/docker/docker-entrypoint.sh"]
