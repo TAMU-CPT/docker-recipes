@@ -14,6 +14,7 @@ RUN apt-get -qq update && \
 ADD ./proxy.conf /etc/nginx/conf.d/server.tmpl
 
 ENV ROOT_DIR=/var/www \
-	PATH_PREFIX=/static
+	PATH_PREFIX=/static \
+	AUTOINDEX=0
 
 CMD ["dockerize", "-template", "/etc/nginx/conf.d/server.tmpl:/etc/nginx/conf.d/default.conf", "nginx", "-g", "daemon off;"]
