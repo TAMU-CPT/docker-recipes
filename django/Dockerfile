@@ -1,6 +1,6 @@
 FROM python:2.7-alpine
 
-RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 
 # Update the default application repository sources list
 RUN apk update && \
