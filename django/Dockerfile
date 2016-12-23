@@ -1,5 +1,7 @@
 FROM python:2.7-alpine
 
+RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+
 # Update the default application repository sources list
 RUN apk update && \
 	apk add postgresql-dev gcc python3-dev musl-dev bash postgresql-client git && \
