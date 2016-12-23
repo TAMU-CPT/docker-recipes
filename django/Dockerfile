@@ -1,15 +1,19 @@
-FROM python:2.7-alpine
+FROM python:2.7
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # Update the default application repository sources list
-RUN apk update && \
-	apk add postgresql-dev gcc python3-dev musl-dev bash postgresql-client git && \
+RUN apt-get update && \
+	apt-get install --no-install-recommends -y apt-transport-https \
+	postgresql-client libpq-dev binutils libproj-dev gdal-bin \
+	build-essential python-dev python3-dev libpq-dev git python-pip && \
 	pip install psycopg2 gunicorn raven
 
 WORKDIR /app
-RUN addgroup -S django && \
-	adduser -S -G django django && \
+RUN adduser --system --home /app --group django && \
+	chown -R django:django -R /app && \
 	mkdir /docker
-
+	
 ADD create_admin.py postgres_ready.py docker-entrypoint.sh /docker/
 
 ENV DJANGO_WSGI_MODULE=base.wsgi \
