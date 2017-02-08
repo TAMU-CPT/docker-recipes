@@ -6,11 +6,11 @@ RUN apk update && \
 	apk add ca-certificates wget python tar bash && \
 	update-ca-certificates
 
-ENV GIT_REV=master \
+ENV GIT_REV=04af3607bc26a6b7bbc33438f0abbc042a2f0694 \
 	OBO_URLS="http://geneontology.org/ontology/go.obo"
 
 RUN mkdir /go && \
-	wget https://github.com/elenimijalis/go_parse/archive/0bfcd59897718ca9c3f28d7e21b2074883c224de.tar.gz -O api.tar.gz && \
+	wget https://github.com/elenimijalis/go_parse/archive/${GIT_REV}.tar.gz -O api.tar.gz && \
 	tar -xf api.tar.gz -C /go --strip-components=1 && \
 	rm api.tar.gz
 
