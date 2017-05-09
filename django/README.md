@@ -9,6 +9,7 @@ Features:
 - startup script that waits on postgres being available
 - script to automatically, randomly set the "admin" user password, and make it
   visible to the console logs
+- Ability to control number of workers and log level
 
 ## How to use this
 

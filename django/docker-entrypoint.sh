@@ -18,6 +18,7 @@ python /docker/create_admin.py
 # Start Gunicorn processes
 echo Starting Gunicorn.
 gunicorn ${DJANGO_WSGI_MODULE}:application \
+	--log-level ${GUNICORN_LOG_LEVEL:-info} \
 	--bind 0.0.0.0:8000 \
-	--workers 3 \
+	--workers ${DJANGO_WORKERS:-4} \
 	"$@"
