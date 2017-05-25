@@ -1,0 +1,12 @@
+jenkins:
+    image: cptjenkins/jenkins:latest
+    ports:
+        - "8082:8080"
+    volumes:
+        - ./data:/var/jenkins_home
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /media/nfs-backup/blast/:/media/nfs-backup/blast/
+    environment:
+        JENKINS_OPTS: "--prefix=/jenkins"
+        JAVA_OPTS: "-Xmx2048m"
+    mem_limit: 2000000000
