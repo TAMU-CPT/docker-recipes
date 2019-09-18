@@ -13,8 +13,8 @@ RUN wget ${GIT_URL}/archive/${GIT_REV}.tar.gz && \
 	tar xvfz ${GIT_REV}.tar.gz && \
 	rm ${GIT_REV}.tar.gz && \
 	mv Phage-Registry-${GIT_REV}/ /app/ && \
-	go get -v github.com/blevesearch/bleve/... && \
-	go get -v github.com/gorilla/mux && \
+	go get -uv github.com/blevesearch/bleve/... && \
+	go get -uv github.com/gorilla/mux && \
 	cd /app && \
 	make download_data && \
 	make update_date
