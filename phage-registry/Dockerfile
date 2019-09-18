@@ -12,10 +12,10 @@ ENV GIT_URL https://github.com/TAMU-CPT/Phage-Registry
 RUN wget ${GIT_URL}/archive/${GIT_REV}.tar.gz && \
 	tar xvfz ${GIT_REV}.tar.gz && \
 	rm ${GIT_REV}.tar.gz && \
-	mv Phage-Registry-${GIT_REV}/ /app/ && \
-	go get -u -v github.com/blevesearch/bleve/... && \
-	go get -u -v github.com/gorilla/mux && \
-	cd /app && \
+	mv Phage-Registry-${GIT_REV}/ /app/
+RUN go get -v github.com/blevesearch/bleve/...
+RUN go get -v github.com/gorilla/mux
+RUN cd /app && \
 	make download_data && \
 	make update_date
 
