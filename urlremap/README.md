@@ -6,7 +6,8 @@ you to map incoming requests to `http://proxy-container/foo/bar/index.html` to `
 Environment Variable   | Usage
 ---------------------- | ---
 `INCOMING_PATH_PREFIX` | Incoming path to be remapped, e.g. `/foo/bar`
-`OUTGOING_PATH_PREFIX`  | Path that is correct on the backend, e.g. `/baz`
+`OUTGOING_PATH_PREFIX` | Path that is correct on the backend, e.g. `/baz`
+`BACKEND_ADDR`         | Address that the request should be routed to. Can be a container link or an address
 `BACKEND_PORT`         | Port that the request should be routed to on the backend.
 
-The backend container should be linked in as `backend`
+The backend container should be linked in as `backend` and leave `BACKEND_ADDR` unchanged for default connection
