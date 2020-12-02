@@ -15,6 +15,7 @@ ADD ./proxy.conf /etc/nginx/conf.d/server.tmpl
 
 ENV INCOMING_PATH_PREFIX=/foo \
 	OUTGOING_PATH_PREFIX=/bar \
-	BACKEND_PORT=80
+	BACKEND_PORT=80 \
+	BACKEND_ADDR=backend
 
 CMD ["dockerize", "-template", "/etc/nginx/conf.d/server.tmpl:/etc/nginx/conf.d/default.conf", "nginx", "-g", "daemon off;"]
