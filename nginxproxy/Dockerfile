@@ -13,8 +13,9 @@ RUN apt-get -qq update && \
 # Add a default proxy conf
 ADD ./proxy.conf /etc/nginx/conf.d/server.tmpl
 
-ENV INCOMING_PATH_PREFIX=/foo \
-	OUTGOING_PATH_PREFIX=/bar \
-	BACKEND=backend
+ENV INCOMING_PATH_ROUTE=/foo \
+	OUTGOING_PATH_ROUTE=/bar \
+	BACKEND_ADDR=backend \
+    BACKEND_PORT=80
 
 CMD ["dockerize", "-template", "/etc/nginx/conf.d/server.tmpl:/etc/nginx/conf.d/default.conf", "nginx", "-g", "daemon off;"]
